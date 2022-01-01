@@ -66,6 +66,9 @@ async fn handle_connection(peer_map: PeerMap, raw_stream: TcpStream, addr: Socke
 
         for recp in broadcast_recipients {
             recp.unbounded_send(msg.clone()).unwrap();
+            for i in 0..10 {
+                recp.unbounded_send(Message::Text(i.to_string())).unwrap();
+            }
         }
 
         future::ok(())
