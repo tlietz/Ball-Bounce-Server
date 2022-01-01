@@ -18,7 +18,7 @@ use tokio_tungstenite::{connect_async, tungstenite::protocol::Message};
 async fn main() {
     let connect_addr = env::args()
         .nth(1)
-        .unwrap_or_else(|| "ws://0.0.0.0:80".to_string());
+        .unwrap_or_else(|| "ws://0.0.0.0:8080".to_string());
 
     let url = url::Url::parse(&connect_addr).unwrap();
 
